@@ -5,7 +5,7 @@ import { BiBookmarkPlus } from "react-icons/bi";
 
 // Components
 
-// import Navbar from '../components/Navbar'
+import Navbar from '../components/Navbar'
 // import ImageGrid from "../components/Restaurant/ImageGrid";
 // import InfoButton from "../components/Restaurant/InfoButton";
 // import RestaurantInfo from "../components/Restaurant/RestaurantInfo";
@@ -14,7 +14,7 @@ import { BiBookmarkPlus } from "react-icons/bi";
 const RestaurantPageLayout = (Component) => (...props) => {
   return (
     <>
-      {/* <Navbar /> */}
+      <Navbar />
       <Component {...props} />
     </>
   )
