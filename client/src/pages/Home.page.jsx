@@ -6,4 +6,4 @@ const Home = () => {
   )
 }
 
-export default HomePageLayout (Home)
+export default HomePageLayout(Home)
