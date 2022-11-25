@@ -5,17 +5,17 @@ import passport from "passport";
 const Router = express.Router();
 
 /**
- * Route     /
- * Des       Get authorized user data
- * Params    none
- * Access    private
- * Method    GET
+ * Route    :  /
+ * Des      :  Get authorized user data
+ * Params   :  none
+ * Access   :  private
+ * Method   :  GET
  */
 Router.get("/",  passport.authenticate("jwt", { session : false }), async (req, res) => {
   try {
-    const { email, fullName, phoneNumber, address } = req.user;
+    const {_id, email, fullName, phoneNumber, address } = req.user;
 
-    return res.json({ user: { email, fullName, phoneNumber, address, } });
+    return res.json({ user: {_id, email, fullName, phoneNumber, address, } });
   } catch (error) {
     return res.status(500).json({ error: error.message });
   }

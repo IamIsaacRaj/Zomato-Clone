@@ -1,7 +1,7 @@
 import express from "express" ;
 import passport from "passport" ;
 
-import { OrderModel, orderModel} from "../../database/allModules";
+import { OrderModel} from "../../database/allModules";
 
 const Router = express.Router();
 
@@ -30,18 +30,17 @@ Router.get('/', passport.authenticate("jwt", {session : false}), async (req , re
 
 /**
  * Route     /new
- * Des       Get new order
+ * Des       Add new order
  * Params    none
  * Access    Private
  * Method    PUT
  */
 
- Router.get('/new', passport.authenticate("jwt", {session : false}), async (req , res) =>{
+ Router.post('/new', passport.authenticate("jwt", {session : false}), async (req , res) =>{
   try {
     const { user } = req;
     const { orderDetails } = req.body;
-    //task validate order details
-    const addNewOrder = await OrderModel.findOneAndUpdate(
+    const addNewOrder = await OrderModel.create(
       { user : user._id, },
       { $push : {
           orderDetails : orderDetails,
@@ -49,7 +48,7 @@ Router.get('/', passport.authenticate("jwt", {session : false}), async (req , re
       { new : true,}
     )
 
-    return res.status(200).json({orders : addNewOrder})
+    return res.status(200).json({ addNewOrder })
   } catch (error) {
     return res.status(500).json({error : error.message})
   }

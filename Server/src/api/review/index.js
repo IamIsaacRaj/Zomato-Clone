@@ -7,7 +7,7 @@ const Router = express.Router();
 
 /**
  * Route     /:resId
- * Des       Get all review for a particular restaurant
+ * Des       Get all review for a particular restaurant using restaurant id
  * Params    resId
  * Access    Public
  * Method    GET
@@ -16,7 +16,9 @@ const Router = express.Router();
 Router.get("/:resId",async (req , res) => {
   try {
     const { resId } = req.params;
-    const reviews = await ReviewModel.findById(resId).sort({ createdAt : -1 });
+    const reviews = await ReviewModel.find({ restaurants: resId }).sort({
+      createdAt: -1,
+    })
     return res.status(200).json({ reviews });
   } catch (error) {
     return res.status(500).json({error : error.message});

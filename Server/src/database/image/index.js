@@ -7,6 +7,7 @@ const ImageSchema = new mongoose.Schema(
         location: { type: String, required: true },
       },
     ],
+    name : { type: String }
   },
   {
     timestamps: true,

@@ -2,20 +2,24 @@ import express from "express";
 import dotenv from "dotenv";
 import passport from "passport";
 import session from "express-session";
+import cors from "cors";
+import helmet from "helmet"
 
 // private route authorization config
 import privateRoutingConfig from "./config/route.config";
 // import googleAuthConfig from "./config/google.config";
+
 // Database Connection
 import ConnectDB from "./database/connection";
 import Auth from "./api/auth";
 import Food from "./api/food";
-import Restaurent from "./api/restaurent";
+import Restaurant from "./api/restaurant";
 import User from "./api/user";
 import Menu from "./api/menu";
 import Order from "./api/order";
 import Review from "./api/review";
-// import Image from "./api/image";
+import Image from "./api/image";
+
 dotenv.config();
 
 privateRoutingConfig(passport);
@@ -23,9 +27,10 @@ privateRoutingConfig(passport);
 
 const zomato = express();
 
-zomato.use(express.json());
-
 //Additional Passport Configuration
+zomato.use(cors({ origin: "http://localhost:3000" }));
+zomato.use(helmet());
+zomato.use(express.json());
 zomato.use(session({ secret : "ZomatoApp" }));
 zomato.use(passport.initialize());
 zomato.use(passport.session())
@@ -40,12 +45,12 @@ zomato.get("/", (req , res) => {
 //auth/signup
 zomato.use("/auth", Auth);
 zomato.use("/food", Food);
-zomato.use("/restaurent", Restaurent);
+zomato.use("/restaurant", Restaurant);
 zomato.use("/User", User);
 zomato.use("/menu",Menu);
 zomato.use("/order",Order);
 zomato.use("/review",Review);
-// zomato.use("/image",Image);
+zomato.use("/image",Image);
 
 zomato.listen(PORT,() => {
   ConnectDB()
