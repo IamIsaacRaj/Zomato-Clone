@@ -19,6 +19,16 @@ This is a Zomato website clone developed with ReactJs and two API's
 * used CURD oreations using REST Api's
 * Razorpay API
 
+# API Planning
+- User (User related details, username, email, password)
+- Restaurant (restaurant and their details)
+- Food (food items and their details)
+- Menu (Menu and its details)
+- Image (Storing all the images related to the project)
+- Order (Order and its details)
+- Review (Storing all the list of reviews)
+
+
 ### User Routes
 #### Get authorized user data
 
