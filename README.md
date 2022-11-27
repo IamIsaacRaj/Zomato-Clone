@@ -1,7 +1,7 @@
 # Zomato clone
 
 This is a Zomato website clone developed with ReactJs and two API's
-
+[Demo video](https://drive.google.com/file/d/15f1PTSsA2a9yWP_uNzulcK8nIR0hob5i/view?usp=drivesdk)
 ## Acknowledgements
 
  - [React Icons](https://react-icons.github.io/react-icons/)
@@ -341,6 +341,8 @@ To run this project, you will need to add the following environment variables to
 ## Documentation
 
 [Routes and Responses ](https://drive.google.com/file/d/1syopU3oNX37074NGPriuA_b7EEONaxfo/view?usp=sharing)
+
+[Demo video](https://drive.google.com/file/d/15f1PTSsA2a9yWP_uNzulcK8nIR0hob5i/view?usp=drivesdk)
 
 
 ## Authors
