@@ -70,12 +70,7 @@ const FoodItem = (props) => {
               />
               <h5>₹ {food?.price}</h5>
               <p>{food?.description}</p>
-              <button className="md:hidden flex items-center justify-center gap-2 text-zomato-400 bg-zomato-50 border-zomato-400 px-2 py-1 rounded-lg">
-                <AiOutlinePlus /> Add
-              </button>
-            </div>
-            <div className="hidden md:block w-2/12">
-              <button
+              <button 
                 className="flex items-center justify-center gap-2 text-zomato-400 bg-zomato-50 border-zomato-400 px-2 py-1 rounded-lg"
                 disabled={food?.isAddedToCart}
                 onClick={addFoodToCart}
@@ -88,6 +83,21 @@ const FoodItem = (props) => {
                   </>
                 )}
               </button>
+              <div className="hidden md:block w-2/12">
+                <button
+                  className="flex items-center justify-center gap-2 text-zomato-400 bg-zomato-50 border-zomato-400 px-2 py-1 rounded-lg"
+                  disabled={food?.isAddedToCart}
+                  onClick={addFoodToCart}
+                >
+                  {food.isAddedToCart ? (
+                    "Added"
+                  ) : (
+                    <>
+                      <AiOutlinePlus /> Add
+                    </>
+                  )}
+                </button>
+              </div>
             </div>
           </div>
         )}

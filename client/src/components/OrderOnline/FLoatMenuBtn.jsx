@@ -27,7 +27,7 @@ const FloatMenuBtn = (props) => {
       )}
       <button
         onClick={toggleMenu}
-        className="text-white rounded-md flex items-center gap-2 bg-yellow-900 px-3 py-1"
+        className="text-white rounded-md flex justify-start items-center gap-2 bg-yellow-900 px-3 py-1"
       >
         {isClicked ? <MdClose /> : <HiMenu />} Menu
       </button>

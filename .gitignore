@@ -8,3 +8,5 @@
 /client/package-lock.json
 /client/.env
 /client/Dockerfile
+
+docker-compose.yml
